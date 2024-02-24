@@ -43,17 +43,25 @@ function App() {
 
   return (
     <div id="container">
-      <div id="inputs">
-        <Input value={inputUrl} setValue={setInputUrl} />
-        <Input value={prompt} setValue={setPrompt} />
-        <button disabled={loading} onClick={() => getImage()}>
-          Submit
-        </button>
+      <div id = "header">
+        <img src={"https://i.pinimg.com/originals/82/c6/5b/82c65b9bb0a75026fc4c82a438b4cc9b.jpg"} height="100px"/>
       </div>
-      <div id="output">
-        {url != '' &&
-          <img src={url} />
-        }
+      
+      <div id = "content">
+        <div id="inputs">
+          <Input value={inputUrl} setValue={setInputUrl} />
+          <Input value={prompt} setValue={setPrompt} />
+          <button disabled={loading} onClick={() => getImage()}>
+            Submit
+          </button>
+        </div>
+
+        <div id="output">
+          {url != '' &&
+            <img src={url} />
+          }
+        </div>
+
       </div>
     </div>
   )
