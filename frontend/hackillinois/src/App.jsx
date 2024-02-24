@@ -1,33 +1,58 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import axios from 'axios'
+
+async function generateImage(url, prompt) {
+  const response = await axios.post('http://localhost:8000/generate', {
+    url,
+    prompt,
+  });
+  return response.data;
+}
+
+function Input({ value, setValue }) {
+  return (
+      <input name="query" value={value} onChange={(e) => setValue(e.target.value)} />
+  );
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [inputUrl, setInputUrl] = useState('');
+  const [prompt, setPrompt] = useState('');
+  const [url, setUrl] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  console.log(inputUrl);
+
+
+  async function getImage() {
+    setLoading(true);
+    try {
+      const output = await generateImage(inputUrl, prompt);
+      if (output.success) setUrl(output.url);
+    } catch(err) {
+      console.log(err);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <Input value={inputUrl} setValue={setInputUrl} />
+        <Input value={prompt} setValue={setPrompt} />
+        <button disabled={loading} onClick={() => getImage()}>
+          Submit
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        {url != '' &&
+          <img src={url} />
+        }
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
