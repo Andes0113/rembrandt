@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from client.generate import generate_image
 from client.describe import describe_image
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 
 load_dotenv()
@@ -13,10 +14,14 @@ class Item(BaseModel):
 
 app = FastAPI()
 
-@app.get('/')
-async def root():
-    url = generate_image()
-    return {"success": True, "url": url}
+origins = ['*']
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post('/generate')
 async def generate(query: Item):
