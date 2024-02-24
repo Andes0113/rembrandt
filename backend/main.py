@@ -23,8 +23,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get('/')
+async def ping():
+    return {"message": "pong"}
+
 @app.post('/generate')
 async def generate(query: Item):
+    print('Grabbing image qualities...')
     qualities = describe_image(query.url)
+    print('Generating image...')
     photo_url = generate_image(query.prompt, qualities)
     return {"success": True, "url": photo_url}
