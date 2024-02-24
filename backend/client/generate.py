@@ -1,14 +1,22 @@
 from openai import OpenAI
 import os
 
+from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
 def generate_image():
     client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
-    prompt_context="high quality tech company logo with the following subject:"
+    qualities = "vintage, advertisement, flat illustration, retro, bold colors, text integration, product promotion, character endorsement, commercial art, high contrast, warm color palette"
+    prompt_context= " with the following image style qualities: " + qualities
 
     response = client.images.generate(
         model="dall-e-3",
-        prompt=prompt_context + "futuristic, blue and pink coloring, a cat",
+        prompt= "a cat in a toaster" + prompt_context,
         size="1024x1024",
         quality="standard",
         n=1,
