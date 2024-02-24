@@ -42,18 +42,20 @@ function App() {
   }
 
   return (
-    <>
-      <div>
+    <div id="container">
+      <div id="inputs">
         <Input value={inputUrl} setValue={setInputUrl} />
         <Input value={prompt} setValue={setPrompt} />
         <button disabled={loading} onClick={() => getImage()}>
           Submit
         </button>
+      </div>
+      <div id="output">
         {url != '' &&
           <img src={url} />
         }
       </div>
-    </>
+    </div>
   )
 }
 
