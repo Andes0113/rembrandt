@@ -1,22 +1,15 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react'
 import './App.css'
 import axios from 'axios'
 import logo from './assets/logo.png'
 
 async function generateImage(urls, prompt) {
-  const response = await axios.post('http://3.15.178.30:8000/generate', {
+  const response = await axios.post('http://rembrandt.alexfprowe.com/generate', {
     urls,
     prompt,
   });
   return response.data;
 }
-
-// function Input({ value, setValue }) {
-//   return (
-//   );
-// }
 
 function App() {
   const [inputUrls, setInputUrls] = useState([
