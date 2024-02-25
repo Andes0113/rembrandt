@@ -19,26 +19,42 @@ async function generateImage(url, prompt) {
 // }
 
 function App() {
-  const [inputUrl, setInputUrl] = useState('');
+  const [inputUrls, setInputUrls] = useState([
+    ''
+  ]);
   const [prompt, setPrompt] = useState('');
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  console.log(inputUrl);
+  console.log(inputUrls);
 
 
   async function getImage() {
     setLoading(true);
     try {
-      const output = await generateImage(inputUrl, prompt);
-      if (output.success) setUrl(output.url);
+      const urls = inputUrls.filter((url) => url != '');
+      if (urls.length > 0 && prompt != '') {
+        const output = await generateImage(urls, prompt);
+        if (output.success) setUrl(output.url);  
+      } else {
+        setError(true);
+      }
     } catch(err) {
       console.log(err);
       setError(true);
     } finally {
       setLoading(false);
     }
+  }
+
+  function setInputUrl(url, idx) {
+    inputUrls[idx] = url;
+    setInputUrls([...inputUrls])
+  }
+
+  function addNewUrl() {
+    setInputUrls([...inputUrls, ''])
   }
 
   return (
@@ -53,7 +69,14 @@ function App() {
         <div id="inputs">
           <div id = "inputUrl">
             <label htmlFor="inputUrl">URL:  </label>
-            <input name="query" value={inputUrl} onChange={(e) => setInputUrl(e.target.value)} />
+              <input
+                name="query"
+                value={inputUrls[inputUrls.length - 1]}
+                onChange={(e) => setInputUrl(e.target.value, inputUrls.length - 1)}
+              />
+            <button onClick={addNewUrl}>
+              Add New Image
+            </button>
           </div>
 
           <div id = "prompt">
