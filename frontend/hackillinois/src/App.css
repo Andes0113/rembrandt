@@ -5,6 +5,28 @@
   height: 100%;
 }
 
+.hidden {
+  background-color: transparent;
+  color: transparent;
+  border: 0px !important;
+}
+
+#imgCarousel {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  height: 50px;
+  width: 100%;
+  max-width: 13.25rem;
+  justify-content: flex-start;
+  border: 1px solid white;
+  overflow-x: auto;
+}
+.carouselImg {
+  max-height: 100%;
+  max-width: 50px;
+}
 
 
 #inputs {
@@ -12,6 +34,7 @@
   align-items: center;
   flex-direction: column;
   padding: 4rem;
+  padding-top: 1.5rem;
   /* border: 1px solid red; */
 }
 
@@ -114,7 +137,7 @@
 
 #header {
   display: flex;
-  padding-bottom: 3rem;
+  /* padding-bottom: 1rem; */
 }
 
 #content {
