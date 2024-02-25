@@ -5,6 +5,7 @@ from client.describe import describe_image
 from typing import List
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
+# import ssl
 
 
 load_dotenv()
@@ -15,7 +16,10 @@ class GenerateQuery(BaseModel):
 
 app = FastAPI()
 
-origins = ['http://localhost:5173']
+# ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+# ssl_context.load_cert_chain('/path/to/cert.pem', keyfile='/path/to/key.pem')
+
+origins = ['http://localhost:5173', 'https://alexfprowe.com/rembrandt']
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
