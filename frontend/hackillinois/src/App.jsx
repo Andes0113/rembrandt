@@ -13,11 +13,10 @@ async function generateImage(url, prompt) {
   return response.data;
 }
 
-function Input({ value, setValue }) {
-  return (
-      <input name="query" value={value} onChange={(e) => setValue(e.target.value)} />
-  );
-}
+// function Input({ value, setValue }) {
+//   return (
+//   );
+// }
 
 function App() {
   const [inputUrl, setInputUrl] = useState('');
@@ -53,13 +52,13 @@ function App() {
 
         <div id="inputs">
           <div id = "inputUrl">
-            <label htmlFor="inputUrl">URL: </label>
-            <Input value={inputUrl} setValue={setInputUrl} />
+            <label htmlFor="inputUrl">URL:  </label>
+            <input name="query" value={inputUrl} onChange={(e) => setInputUrl(e.target.value)} />
           </div>
 
           <div id = "prompt">
-            <label htmlFor="prompt">Prompt:</label>
-            <Input value={prompt} setValue={setPrompt} />
+            <label htmlFor="prompt">Prompt:  </label>
+            <textarea name="query" value={prompt} onChange={(e) => setPrompt(e.target.value)} />
           </div>
 
           <button disabled={loading} onClick={() => getImage()}>
@@ -70,7 +69,7 @@ function App() {
 
       <div id="output">
         {url != '' &&
-          <img src={url} />
+          <img id="image" src={url} />
         }
       </div>
     </div>
