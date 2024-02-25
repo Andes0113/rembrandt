@@ -9,8 +9,10 @@
 
 #inputs {
   display: flex;
+  align-items: center;
   flex-direction: column;
   padding: 4rem;
+  /* border: 1px solid red; */
 }
 
 #prompt {
@@ -29,6 +31,9 @@
 
 #inputUrl, #prompt {
   margin-bottom: 20px; 
+  /* display: flex;
+  align-items: center; */
+  
 }
 
 #inputUrl label,
@@ -36,15 +41,25 @@
   color: white;
   margin-bottom: 5px;
   display: block; 
+  display: flex;
+  align-items: center;
 }
 
 #inputUrl input{
   border: 1px solid white;
   border-radius: 5px;
+  margin-bottom: 20px;
   padding: 5px;
   height: 20px; 
   width: 220px; 
   font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+#inputUrl button{
+  display: flex;
+  align-items: center;
 }
 
 #prompt textarea {
@@ -72,6 +87,7 @@
 #container button{
   border: 1px solid white;
   border-radius:7px;
+  width: 230px; 
 }
 
 #container * {
@@ -86,7 +102,7 @@
   background-color: #1f1f1f;
   margin-left: 6rem;
   margin-bottom: 6rem;
-  max-height: 750px; 
+  max-height: 650px; 
   object-fit: contain
 }
 #output img {

@@ -5,9 +5,9 @@ import './App.css'
 import axios from 'axios'
 import logo from './assets/logo.png'
 
-async function generateImage(url, prompt) {
+async function generateImage(urls, prompt) {
   const response = await axios.post('http://3.15.178.30:8000/generate', {
-    url,
+    urls,
     prompt,
   });
   return response.data;
@@ -85,7 +85,7 @@ function App() {
           </div>
 
           <button disabled={loading} onClick={() => getImage()}>
-            Submit
+            Generate
           </button>
         </div>
       </div>
