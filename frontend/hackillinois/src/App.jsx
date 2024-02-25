@@ -33,7 +33,7 @@ function App() {
   async function getImage() {
     setLoading(true);
     try {
-      const urls = inputUrls.filter((url) => url != '');
+      const urls = inputUrls.slice(0, -1);
       if (urls.length > 0 && prompt != '') {
         const output = await generateImage(urls, prompt);
         if (output.success) setUrl(output.url);  
@@ -54,7 +54,9 @@ function App() {
   }
 
   function addNewUrl() {
-    setInputUrls([...inputUrls, ''])
+    if (inputUrls[inputUrls.length - 1] !== '') {
+      setInputUrls([...inputUrls, ''])
+    }
   }
 
   return (
@@ -67,6 +69,15 @@ function App() {
         </div>
 
         <div id="inputs">
+          <div id='imgCarousel' className={inputUrls.slice(0, -1).length == 0 ? 'hidden' : ''}>
+            {inputUrls.slice(0, -1).map((url, idx) => (
+              <img
+                className="carouselImg"
+                onError={() => setInputUrls([...inputUrls.slice(0, idx), ...inputUrls.slice(idx + 1)])}
+                src={url}
+                key={idx} />
+            ))}
+          </div>
           <div id = "inputUrl">
             <label htmlFor="inputUrl">URL:  </label>
               <input
