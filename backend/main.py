@@ -19,7 +19,7 @@ app = FastAPI()
 ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 ssl_context.load_cert_chain('/etc/letsencrypt/live/rembrandt.alexfprowe.com/fullchain.pem', keyfile='/etc/letsencrypt/live/rembrandt.alexfprowe.com/privkey.pem')
 
-origins = ['http://localhost:5173', 'https://alexfprowe.com/rembrandt']
+origins = ['http://localhost:5173', 'https://alexfprowe.com']
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
