@@ -22,7 +22,7 @@
   justify-content: flex-start;
   border: 1px solid white;
   overflow-x: auto;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 .carouselImg {
   max-height: 100%;
