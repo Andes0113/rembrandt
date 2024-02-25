@@ -4,7 +4,7 @@ import axios from 'axios'
 import logo from './assets/logo.png'
 
 async function generateImage(urls, prompt) {
-  const response = await axios.post('http://rembrandt.alexfprowe.com/generate', {
+  const response = await axios.post('https://rembrandt.alexfprowe.com/generate', {
     urls,
     prompt,
   });
