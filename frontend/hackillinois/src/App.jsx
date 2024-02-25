@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios'
+import logo from './assets/logo.png'
 
 async function generateImage(url, prompt) {
   const response = await axios.post('http://localhost:8000/generate', {
@@ -44,7 +45,7 @@ function App() {
   return (
     <div id="container">
       <div id = "header">
-        <img src={"logo.png"} height="100px"/>
+        <img src={logo} height="100rem"/>
       </div>
 
       <div id = "content">
