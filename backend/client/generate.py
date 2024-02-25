@@ -8,7 +8,7 @@ load_dotenv()
 def generate_image(prompt, qualities):
     client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
-    prompt_context= " with the following image style qualities: " + qualities
+    prompt_context= " with the common image style qualities from this list: " + qualities + ". Do not include text unless specified."
 
     response = client.images.generate(
         model="dall-e-3",
