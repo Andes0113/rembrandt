@@ -6,7 +6,7 @@ import axios from 'axios'
 import logo from './assets/logo.png'
 
 async function generateImage(urls, prompt) {
-  const response = await axios.post('http://3.15.178.30:8000/generate', {
+  const response = await axios.post('http://3.15.178.30:80/generate', {
     urls,
     prompt,
   });
@@ -106,7 +106,7 @@ function App() {
           <img id="image" src={url} />
         }
         {loading && 
-          <img src={"https://media.discordapp.net/attachments/1210798619045793854/1211207844410560532/output-onlinegiftools_1.gif?ex=65ed5c35&is=65dae735&hm=99bc39ef4efdbafce3f8812b229510953a5b0895da58204d80cdc074c84b098f&=&width=1152&height=864"}/>
+          <img src={"https://media.discordapp.net/attachments/1210798619045793854/1211207844410560532/output-onlinegiftools_1.gif?ex=65ed5c35&is=65dae735&hm=99bc39ef4efdbafce3f8812b229510953a5b0895da58204d80cdc074c84b098f&=&width=1152&height=864"} height="300rem" />
         }
 
       </div>
