@@ -34,8 +34,10 @@
 }
 
 #output {
-  width: 100%;
-  border: 1px solid red;
+  width: 60%;
+  border: 3px solid #D0A933;
+  background-color: #1f1f1f;
+  margin-left: 10rem;
 }
 
 #header {
