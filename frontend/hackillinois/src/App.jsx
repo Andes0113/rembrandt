@@ -49,14 +49,19 @@ function App() {
       
       <div id = "content">
         <div id="inputs">
-          <label htmlFor="inputUrl">URL:</label>
-          <Input value={inputUrl} setValue={setInputUrl} />
-          <label htmlFor="prompt">Prompt:</label>
-          <Input value={prompt} setValue={setPrompt} />
+          <div id = "inputUrl">
+            <label htmlFor="inputUrl">URL: </label>
+            <Input value={inputUrl} setValue={setInputUrl} />
+          </div>
+          <div id = "prompt">
+            <label htmlFor="prompt">Prompt</label>
+            <Input value={prompt} setValue={setPrompt} />
+          </div>
           <button disabled={loading} onClick={() => getImage()}>
             Submit
           </button>
         </div>
+
 
         <div id="output">
           {url != '' &&
