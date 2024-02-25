@@ -79,7 +79,7 @@ function App() {
             ))}
           </div>
           <div id = "inputUrl">
-            <label htmlFor="inputUrl">URL:  </label>
+            <label htmlFor="inputUrl">Reference Image URL:  </label>
               <input
                 name="query"
                 value={inputUrls[inputUrls.length - 1]}
@@ -91,7 +91,7 @@ function App() {
           </div>
 
           <div id = "prompt">
-            <label htmlFor="prompt">Prompt:  </label>
+            <label htmlFor="prompt">Image Generation Prompt:  </label>
             <textarea name="query" value={prompt} onChange={(e) => setPrompt(e.target.value)} />
           </div>
 
@@ -106,7 +106,7 @@ function App() {
           <img id="image" src={url} />
         }
         {loading && 
-          <img src={"https://media.discordapp.net/attachments/1210798619045793854/1211206649424117770/output-onlinegiftools.gif?ex=65ed5b18&is=65dae618&hm=c115994e497c9e49f90fd7e23f0e2b295e3223c12b42f84a9140251cd0466489&=&width=1152&height=864"}/>
+          <img src={"https://media.discordapp.net/attachments/1210798619045793854/1211207844410560532/output-onlinegiftools_1.gif?ex=65ed5c35&is=65dae735&hm=99bc39ef4efdbafce3f8812b229510953a5b0895da58204d80cdc074c84b098f&=&width=1152&height=864"}/>
         }
 
       </div>
