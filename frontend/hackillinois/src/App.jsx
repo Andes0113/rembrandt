@@ -44,32 +44,34 @@ function App() {
 
   return (
     <div id="container">
-      <div id = "header">
-        <img src={logo} height="100rem"/>
-      </div>
 
       <div id = "content">
+
+        <div id = "header">
+          <img src={logo} height="100rem"/>
+        </div>
+
         <div id="inputs">
           <div id = "inputUrl">
             <label htmlFor="inputUrl">URL: </label>
             <Input value={inputUrl} setValue={setInputUrl} />
           </div>
+
           <div id = "prompt">
-            <label htmlFor="prompt">Prompt</label>
+            <label htmlFor="prompt">Prompt:</label>
             <Input value={prompt} setValue={setPrompt} />
           </div>
+
           <button disabled={loading} onClick={() => getImage()}>
             Submit
           </button>
         </div>
+      </div>
 
-
-        <div id="output">
-          {url != '' &&
-            <img src={url} />
-          }
-        </div>
-
+      <div id="output">
+        {url != '' &&
+          <img src={url} />
+        }
       </div>
     </div>
   )
