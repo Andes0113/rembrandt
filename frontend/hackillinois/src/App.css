@@ -13,6 +13,19 @@
   padding: 4rem;
 }
 
+#prompt {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#prompt input {
+  width: 100%; 
+  height: 60px; 
+  font-size: 18px; 
+  padding: 10px; 
+}
+
+
 #container {
   display: flex;
   height: 100%;
