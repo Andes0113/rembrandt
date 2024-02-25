@@ -2,14 +2,15 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from client.generate import generate_image
 from client.describe import describe_image
+from typing import List
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 
 load_dotenv()
 
-class Item(BaseModel):
-    url: str
+class GenerateQuery(BaseModel):
+    urls: List[str]
     prompt: str
 
 app = FastAPI()
@@ -28,9 +29,9 @@ async def ping():
     return {"message": "pong"}
 
 @app.post('/generate')
-async def generate(query: Item):
+async def generate(query: GenerateQuery):
     print('Grabbing image qualities...')
-    qualities = describe_image(query.url)
+    qualities = describe_image(query.urls)
     print('Generating image...')
     photo_url = generate_image(query.prompt, qualities)
     return {"success": True, "url": photo_url}
