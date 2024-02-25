@@ -122,13 +122,17 @@
 }
 
 #output {
-  width: 60%;
+  width: 50%;
   border: 3px solid #D0A933;
   background-color: #1f1f1f;
-  margin-left: 6rem;
+  margin-left: 10rem;
   margin-bottom: 6rem;
+  aspect-ratio: 1/1;
   max-height: 650px; 
-  object-fit: contain
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #output img {
   max-width: 100%; 

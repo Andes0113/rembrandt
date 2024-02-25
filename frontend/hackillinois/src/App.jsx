@@ -102,9 +102,13 @@ function App() {
       </div>
 
       <div id="output">
-        {url != '' &&
+        {url != '' && !loading &&
           <img id="image" src={url} />
         }
+        {loading && 
+          <img src={"https://media.discordapp.net/attachments/1210798619045793854/1211206649424117770/output-onlinegiftools.gif?ex=65ed5b18&is=65dae618&hm=c115994e497c9e49f90fd7e23f0e2b295e3223c12b42f84a9140251cd0466489&=&width=1152&height=864"}/>
+        }
+
       </div>
     </div>
   )
