@@ -22,6 +22,7 @@
   justify-content: flex-start;
   border: 1px solid white;
   overflow-x: auto;
+  margin-top: 30px;
 }
 .carouselImg {
   max-height: 100%;
@@ -97,6 +98,7 @@
   padding: 5px;
   border: 1px solid white;
   border-radius: 10px;
+  font-family: "Arial"
 }
 
 #container {
@@ -111,21 +113,32 @@
 
 #container button{
   border: 1px solid white;
+  background-color: #D0A933;
+  color: black;
+  border-color: black;
+  font-weight: bold;
   border-radius:7px;
   width: 230px; 
 }
 
-#container * {
+/* #container * {
+  color: inherit; 
+  background-color: inherit;
+  font-family: inherit;
+} */
+
+#container input{
   color: inherit; 
   background-color: inherit;
   font-family: inherit;
 }
 
+
 #output {
-  width: 50%;
+  width: 48%;
   border: 3px solid #D0A933;
   background-color: #1f1f1f;
-  margin-left: 10rem;
+  margin-left: 8rem;
   margin-bottom: 6rem;
   aspect-ratio: 1/1;
   max-height: 650px; 
@@ -133,10 +146,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* padding: rem; */
 }
 #output img {
   max-width: 100%; 
   max-height: 100%; 
+}
+
+#imgCarousel {
+  margin-bottom: 20px;
 }
 
 #header {
