@@ -10,6 +10,8 @@ Built with FastAPI and React and using AWS/EC2 for hosting.
 
 [Devpost](https://devpost.com/software/rembrandt)
 
+[Demo](https://www.youtube.com/watch?v=SkkQht3aW3g)
+
 Group Members: 
 [Alex Rowe](https://github.com/Andes0113/)
 [Sherry Long](https://github.com/sherrylong)
